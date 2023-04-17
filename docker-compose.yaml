@@ -1,0 +1,20 @@
+version: '3.9'
+services: 
+  webapp:
+    build: '.'
+    ports:
+      - 80:80
+    networks:
+      - devops
+  database_server:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "LottoDB"
+      MYSQL_USER: "oulahn"
+      MYSQL_PASSWORD: "Password@123#"
+    networks:
+      - devops
+networks:
+  devops:
+    driver: bridge

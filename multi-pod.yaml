@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oulahn-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: oulahn-webapp
+  template:
+    metadata:
+      labels:
+        app: oulahn-webapp
+    spec:
+      containers:
+      - name: oulahn-webapp-container
+        image: oulahn/dlottery:lotto
+        ports:
+        - containerPort: 80

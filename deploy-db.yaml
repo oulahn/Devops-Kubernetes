@@ -1,0 +1,7 @@
+POD=db-789cc64965-nzn9g
+
+kubectl cp ../database/db.sql $POD:/root
+kubectl cp ../database/db-data.sql $POD:/root
+
+kubectl exec -it $POD bash -- /bin/sh "mysql -uroot -ppassword < /root/db.sql"
+kubectl exec -it $POD bash -- /bin/sh "mysql -uroot -ppassword < /root/db-data.sql"
